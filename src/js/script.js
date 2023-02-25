@@ -74,16 +74,20 @@ function setElementOnDOM() {
 
   setElementOnDOM()
 
- 
+ let cookievalue = `${display_tasks.task}`
+  WriteCookies(cookievalue)
 }
 
 })
-console.log(tasks)
 
-let cookievalue = `${display_tasks.task}`
-function WriteCookies(){
-  document.cookie = "Color" + " "+ cookievalue;
+console.log(tasks)
+console.log(display_tasks)
+
+
+
+function WriteCookies(value){
+  document.cookie = "Color" + " "+ value;
    }
 
 
-   WriteCookies()
+ 
