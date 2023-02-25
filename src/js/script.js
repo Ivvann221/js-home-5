@@ -83,7 +83,7 @@ inputTwo.addEventListener("input", function() { // Додаємо обробни
 
   setElementOnDOM()
 
-<<<<<<< HEAD
+
 
 
 
@@ -115,25 +115,14 @@ function getCookieValue(name) {
 }
  
 
-=======
+
  let cookievalue = `${display_tasks.task}`
   WriteCookies(cookievalue)
->>>>>>> c2f2642fa3e25a687e619d7e8e5d722410565502
+
 }
 
 })
 
-<<<<<<< HEAD
-=======
-console.log(tasks)
-console.log(display_tasks)
-
-
-
-function WriteCookies(value){
-  document.cookie = "Color" + " "+ value;
-   }
 
 
  
->>>>>>> c2f2642fa3e25a687e619d7e8e5d722410565502
