@@ -26,9 +26,20 @@ function setElementOnDOM() {
   });
 }
 
+let input = document.getElementById("input-color"); // Отримуємо поле вводу
+input.addEventListener("input", function() { // Додаємо обробник події для поля вводу
+  let regex = /[^a-zA-Z]/g; // Визначаємо регулярний вираз для перевірки на наявність не-буквенних символів
+  input.value = input.value.replace(regex, ""); // Замінюємо будь-які не-буквенні символи на порожній рядок
+});
+
+let inputTwo = document.getElementById("input-code"); // Отримуємо поле вводу
+inputTwo.addEventListener("input", function() { // Додаємо обробник події для поля вводу
+  let regex = /[^0-99,]/g; // Визначаємо регулярний вираз для перевірки на наявність не-буквенних символів
+  inputTwo.value = inputTwo.value.replace(regex, ""); // Замінюємо будь-які не-буквенні символи на порожній рядок
+});
+
   document.getElementById("save").addEventListener("click", (event) => {
        event.preventDefault();
-
        function nameAudit(){
         if(COLOR.length != 0){
          TEST.innerHTML = `color`;
@@ -70,20 +81,40 @@ function setElementOnDOM() {
   
   //
 
-
-
   setElementOnDOM()
 
+
+
+
+// add Cookies
+  let now = new Date();
+  // переводимо поточну дату в мілі секунди 
+  let time = now.getTime() + 5000;
+  // встановлюєм час  1000м/c * 60 х/в * 60 г. * 3 г.
+  let expireTime = new Date(time);
  
+
+// Зчитуємо поточне значення Cookie
+let currentUsername = getCookieValue("color");
+
+// Додаємо нове значення до списку
+let newUsername = currentUsername + "," + COLOR;
+
+// Зберігаємо оновлений список Cookie
+document.cookie = `color=${newUsername};expires=${expireTime}; path=/`;
+
+// Функція для зчитування значення Cookie
+function getCookieValue(name) {
+  let cookies = document.cookie.split(';');
+  let cookie = cookies.find(cookie => cookie.includes(name + '='));
+  if (cookie) {
+    return cookie.split('=')[1];
+  }
+  return null;
+}
+ 
+
 }
 
 })
-console.log(tasks)
 
-let cookievalue = `${display_tasks.task}`
-function WriteCookies(){
-  document.cookie = "Color" + " "+ cookievalue;
-   }
-
-
-   WriteCookies()
